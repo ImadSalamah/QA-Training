@@ -45,31 +45,34 @@ describe('test suite', () => {
  */
 describe('login test suite', () => {
     it('successful login test case with valid credentials' , () => {
-        cy.visit('https://automationexercise.com/login')
+        cy.visit("/")
         cy.get('a[href="/login"]').click()
         cy.get('input[data-qa="login-email"]').type('ims@gmail.com')
         cy.get('input[data-qa="login-password"]').type('12345678')
         cy.get('button[data-qa="login-button"]').click()
         cy.get('a[href="/logout"]').should('be.visible')  
     })
+    
     it ('unsuccessful login test case with invalid credentials' , () => {
-        cy.visit('https://automationexercise.com/login')
+        cy.visit('/')
         cy.get('a[href="/login"]').click()
         cy.get('input[data-qa="login-email"]').type('invalid@gmail.com')
         cy.get('input[data-qa="login-password"]').type('invalid123')
         cy.get('button[data-qa="login-button"]').click()
 cy.contains('p', 'Your email or password is incorrect!')
   .should('have.css', 'color', 'rgb(255, 0, 0)')    })
+
   it ('unsuccessful login test case with valid email and invalid password' , () => {
-    cy.visit('https://automationexercise.com/login')
+    cy.visit('/')
     cy.get('a[href="/login"]').click()
     cy.get('input[data-qa="login-email"]').type('ims@gmail.com')
     cy.get('input[data-qa="login-password"]').type('invalid123')
     cy.get('button[data-qa="login-button"]').click()
 cy.contains('p', 'Your email or password is incorrect!')
   .should('have.css', 'color', 'rgb(255, 0, 0)')    })
+
     it ('unsuccessful login test case with invalid email and valid password' , () => {
-        cy.visit('https://automationexercise.com/login')
+        cy.visit('/')
         cy.get('a[href="/login"]').click()
         cy.get('input[data-qa="login-email"]').type('invalid@gmail.com')
         cy.get('input[data-qa="login-password"]').type('12345678')
@@ -78,3 +81,14 @@ cy.contains('p', 'Your email or password is incorrect!')
   .should('have.css', 'color', 'rgb(255, 0, 0)')    })  
   
 });
+
+// if i want to run only one test case then i can use it.only and if i want to run only one test suite then i can use describe.only
+
+// the most prefered selector is id selector and then class selector and then attribute selector and then tag selector
+// cy.get('#id') // id selector
+// cy.get('.class') // class selector
+// cy.get('tag') // tag selector
+// cy.get('[attribute="value"]') // attribute selector  
+
+// cy.get('a[href="/login"]') // this is also an attribute selector but it is more specific than the previous one because it is targeting the anchor tag with the specific href attribute value
+// cy.get('a[href="/login"]') == cy.get(href="/login"))
