@@ -8,5 +8,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl:'https://automationexercise.com',
+    viewportHeight: 800,
+    viewportWidth: 1200,
   },
 });
