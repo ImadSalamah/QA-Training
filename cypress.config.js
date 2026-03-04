@@ -8,7 +8,8 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl:'https://automationexercise.com',
-    viewportHeight: 800,
-    viewportWidth: 1200,
+    //viewportHeight: 500,
+   // viewportWidth: 500,
+   // watchForFileChanges: by default true but we can change it to false if we don't want to watch for file changes,
   },
 });
