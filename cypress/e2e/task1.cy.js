@@ -17,4 +17,4 @@ describe('verify login functionality in saucedemo', () => {
     cy.get(".social").first().click()
     
  });
-});
+})
